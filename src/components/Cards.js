@@ -103,10 +103,10 @@ const Cards = () => {
     }, [tempCard]);
 
     return (
-        <div className="flex justify-around">
+        <div className="flex flex-col gap-3">
             <div
                 style={{ backgroundColor: bgTemp }}
-                className="flex w-[25%] h-[150px] justify-around items-center rounded-xl  bg-clip-border text-gray-700 shadow-md border"
+                className="flex h-[150px] justify-around items-center rounded-xl bg-clip-border text-gray-700 shadow-md border"
             >
                 <img
                     src={nhietDo}
@@ -122,7 +122,7 @@ const Cards = () => {
 
             <div
                 style={{ backgroundColor: bgHumi }}
-                className="flex w-[25%] justify-around items-center rounded-xl bg-clip-border text-gray-700 shadow-md border"
+                className="flex h-[150px] justify-around items-center rounded-xl bg-clip-border text-gray-700 shadow-md border"
             >
                 <img
                     src={humidity}
@@ -138,7 +138,7 @@ const Cards = () => {
 
             <div
                 style={{ backgroundColor: bgLight }}
-                className="flex w-[25%] justify-around items-center rounded-xl  bg-clip-border text-gray-700 shadow-md border"
+                className="flex h-[150px] justify-around items-center rounded-xl  bg-clip-border text-gray-700 shadow-md border"
             >
                 <img src={sun} className="object-contain h-[75px] mr-[-50px]" />
                 <div className="ml-[-50px]">

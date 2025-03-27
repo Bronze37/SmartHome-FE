@@ -114,7 +114,7 @@ function DataChart() {
     };
 
     return (
-        <div className="border rounded-lg mr-11 ml-[20px]">
+        <div className="border rounded-lg shadow-md p-4">
             <Line data={chartData} options={chartOptions} />
         </div>
     );

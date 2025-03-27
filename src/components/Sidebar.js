@@ -4,15 +4,8 @@ import { NavLink } from 'react-router-dom';
 const Sidebar = () => {
     return (
         <div>
-            <div className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
-                <div>
-                    {/* <div>
-                        <NavLink to="/" title="home">
-                            <img src={logo} className="w-100 object-contain" alt="POC WCS" />
-                        </NavLink>
-                    </div> */}
-                    {/* <hr className="mt-4" /> */}
-                    <hr />
+            <div className="z-10 top-0 pb-3 px-6 w-full justify-between h-screen border-r bg-white transition duration-300 relative">
+                <div className='sticky top-0 left-0 flex flex-col justify-between h-screen'>
                     <ul className="space-y-2 tracking-wide mt-8">
                         <li>
                             <NavLink
@@ -132,6 +125,32 @@ const Sidebar = () => {
                             </NavLink>
                         </li>
                     </ul>
+                    <div className='relative bottom-10 flex justify-center'>
+                        <button
+                            onClick={() => {
+                                localStorage.removeItem('token');
+                                window.location.href = '/login';
+                            }}
+                            className="px-6 py-3 flex items-center space-x-4 rounded-lg text-white bg-gradient-to-r from-red-500 to-red-400 shadow-lg hover:from-red-600 hover:to-red-800 transition duration-300 transform hover:scale-105"
+                        >
+                            <svg
+                                className="h-6 w-6 text-white"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path stroke="none" d="M0 0h24v24H0z" />
+                                <path d="M10 12h10m-5 -5l5 5l-5 5" />
+                                <path d="M14 4h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7" />
+                            </svg>
+                            <span className="font-semibold text-lg">Logout</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

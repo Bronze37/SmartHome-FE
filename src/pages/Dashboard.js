@@ -2,26 +2,42 @@ import React, { useState, useEffect } from 'react';
 import Cards from '../components/Cards';
 import Led from '../components/Led';
 import DataChart from '../components/DataChart';
+import Overview from '../components/Overview';
+import Data from '../components/Data';
 
 const Dashboard = () => {
     return (
-        <div>
-            <hr className="mr-[100px]" />
-
-            <div className="mr-[100px] mt-10">
-                <Cards />
-            </div>
-
-            <div className="mt-[40px] mr-[120px] flex justify-around items-center">
-                <div className="w-[70%]">
-                    <DataChart />
+        <div className='row'>
+            <div className='col-8'>
+                <div className='row my-3'>
+                    <div className='col-8'>
+                        <Overview />
+                    </div>
+                    <div className='col-4'>
+                        <Data />
+                    </div>
                 </div>
-                <div className="w-[30%]">
-                    <Led />
+                <div className='row'>
+                    <div className='col-12'>
+                        <Led />
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-12 mt-3'>
+                        <DataChart />
+                    </div>
                 </div>
             </div>
-
-            
+            <div className='col-4'>
+                <div className='row'>
+                    <div className='col-12'>Dong ho</div>
+                </div>
+                <div className='row'>
+                    <div className='col-12'>
+                        <Cards />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
