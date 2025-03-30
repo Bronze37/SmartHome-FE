@@ -7,7 +7,6 @@ import Profile from "./pages/Profile";
 import DataSensor from "./pages/DataSensor";
 import ActionHistory from "./pages/ActionHistory";
 import Login from "./pages/Login";
-import useLimitedArray from "./config/useLimitedArray";
 import {jwtDecode} from "jwt-decode";
 
 function App() {
@@ -50,10 +49,10 @@ function App() {
     <div className="App flex justify-around">
       {isAuthenticated ? (
         <>
-          <div className="w-[20%]">
+          <div className="w-[20%] relative">
             <Sidebar />
           </div>
-          <div className="w-[80%] mx-4">
+          <div className="w-[80%] px-4 bg-gray-100">
             <Routes>
               <Route
                 path="/"

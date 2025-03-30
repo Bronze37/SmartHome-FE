@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
-        <div>
-            <div className="z-10 top-0 pb-3 px-6 w-full justify-between h-screen border-r bg-white transition duration-300 relative">
-                <div className='sticky top-0 left-0 flex flex-col justify-between h-screen'>
+        <div className='sticky top-0 left-0 '>
+            <div className="z-10 top-0 pb-3 px-6 w-full justify-between h-screen border-r bg-white transition duration-300">
+                <div className='flex flex-col justify-between h-screen'>
                     <ul className="space-y-2 tracking-wide mt-8">
                         <li>
                             <NavLink

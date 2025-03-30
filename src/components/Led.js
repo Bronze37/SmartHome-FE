@@ -88,108 +88,80 @@ const Led = () => {
     };
 
     return (
-        <div className="row">
-            <div className='col-4'>
-                <div className="flex justify-around items-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md border h-[150px]">
-                    {isCheckedLight ? (
-                        <img
-                            src="https://webvn.com/wp-content/uploads/2015/08/pic_bulbon.gif"
-                            className="object-contain h-[75px] mr-[-50px]"
-                            alt="Light is on"
-                        />
-                    ) : (
-                        <img
-                            src="https://www.w3schools.com/js/pic_bulboff.gif"
-                            className="object-contain h-[75px] mr-[-50px]"
-                            alt="Light is off"
-                        />
-                    )}
-                    <div className="ml-[-50px]">
-                        <div>
-                            <button
-                                className={`mr-2 mt-[0.3rem] w-[80px] h-[35px] rounded-[0.4375rem] ${isCheckedLight
-                                        ? 'bg-primary text-white'
-                                        : 'bg-neutral-300 text-black'
-                                    } focus:outline-none focus:ring-2 focus:ring-primary`}
-                                onClick={
-                                    isCheckedLight
-                                        ? handleTurnOffLight
-                                        : handleTurnOnLight
-                                }
-                            >
-                                {isCheckedLight ? 'ON' : 'OFF'}
-                            </button>
-                        </div>
-                    </div>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex flex-col justify-center items-center bg-white rounded-2xl shadow-md p-6 border border-gray-200">
+                {isCheckedLight ? (
+                    <img
+                        src="https://webvn.com/wp-content/uploads/2015/08/pic_bulbon.gif"
+                        className="h-20 mb-4"
+                        alt="Light is on"
+                    />
+                ) : (
+                    <img
+                        src="https://www.w3schools.com/js/pic_bulboff.gif"
+                        className="h-20 mb-4"
+                        alt="Light is off"
+                    />
+                )}
+                <button
+                    className={`w-24 h-10 rounded-lg font-semibold transition-transform transform hover:scale-105 ${isCheckedLight
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-gray-300 text-gray-700'
+                        }`}
+                    onClick={isCheckedLight ? handleTurnOffLight : handleTurnOnLight}
+                >
+                    {isCheckedLight ? 'ON' : 'OFF'}
+                </button>
             </div>
-            <div className='col-4'>
-                <div className="flex justify-around items-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md border h-[150px]">
-                    {isCheckedAirCon ? (
-                        <img
-                            src={Air_on}
-                            className="object-contain h-[75px] mr-[-50px]"
-                            alt="AirConditioner is on"
-                        />
-                    ) : (
-                        <img
-                            src={Air_off}
-                            className="object-contain h-[75px] mr-[-50px]"
-                            alt="AirConditioner is off"
-                        />
-                    )}
-                    <div className="ml-[-50px]">
-                        <div>
-                            <button
-                                className={`mr-2 mt-[0.3rem] w-[80px] h-[35px] rounded-[0.4375rem] ${isCheckedAirCon
-                                        ? 'bg-primary text-white'
-                                        : 'bg-neutral-300 text-black'
-                                    } focus:outline-none focus:ring-2 focus:ring-primary`}
-                                onClick={
-                                    isCheckedAirCon
-                                        ? handleTurnOffAirCon
-                                        : handleTurnOnAirCon
-                                }
-                            >
-                                {isCheckedAirCon ? 'ON' : 'OFF'}
-                            </button>
-                        </div>
-                    </div>
-                </div>
+
+            <div className="flex flex-col justify-center items-center bg-white rounded-2xl shadow-md p-6 border border-gray-200">
+                {isCheckedAirCon ? (
+                    <img
+                        src={Air_on}
+                        className="h-20 mb-4"
+                        alt="AirConditioner is on"
+                    />
+                ) : (
+                    <img
+                        src={Air_off}
+                        className="h-20 mb-4"
+                        alt="AirConditioner is off"
+                    />
+                )}
+                <button
+                    className={`w-24 h-10 rounded-lg font-semibold transition-transform transform hover:scale-105 ${isCheckedAirCon
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-gray-300 text-gray-700'
+                        }`}
+                    onClick={isCheckedAirCon ? handleTurnOffAirCon : handleTurnOnAirCon}
+                >
+                    {isCheckedAirCon ? 'ON' : 'OFF'}
+                </button>
             </div>
-            <div className='col-4'>
-                <div className="flex justify-around items-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md border h-[150px]">
-                    {isCheckedFan ? (
-                        <img
-                            src={Fan_on}
-                            className="object-contain h-[75px] mr-[-50px]"
-                            alt="Fan is on"
-                        />
-                    ) : (
-                        <img
-                            src={Fan_off}
-                            className="object-contain h-[75px] mr-[-48px]"
-                            alt="Fan is off"
-                        />
-                    )}
-                    <div className="ml-[-50px]">
-                        <div>
-                            <button
-                                className={`mr-2 mt-[0.3rem] w-[80px] h-[35px] rounded-[0.4375rem] ${isCheckedFan
-                                        ? 'bg-primary text-white'
-                                        : 'bg-neutral-300 text-black'
-                                    } focus:outline-none focus:ring-2 focus:ring-primary`}
-                                onClick={
-                                    isCheckedFan
-                                        ? handleTurnOffFan
-                                        : handleTurnOnFan
-                                }
-                            >
-                                {isCheckedFan ? 'ON' : 'OFF'}
-                            </button>
-                        </div>
-                    </div>
-                </div>
+
+            <div className="flex flex-col justify-center items-center bg-white rounded-2xl shadow-md p-6 border border-gray-200">
+                {isCheckedFan ? (
+                    <img
+                        src={Fan_on}
+                        className="h-20 mb-4"
+                        alt="Fan is on"
+                    />
+                ) : (
+                    <img
+                        src={Fan_off}
+                        className="h-20 mb-4"
+                        alt="Fan is off"
+                    />
+                )}
+                <button
+                    className={`w-24 h-10 rounded-lg font-semibold transition-transform transform hover:scale-105 ${isCheckedFan
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-gray-300 text-gray-700'
+                        }`}
+                    onClick={isCheckedFan ? handleTurnOffFan : handleTurnOnFan}
+                >
+                    {isCheckedFan ? 'ON' : 'OFF'}
+                </button>
             </div>
         </div>
     );
