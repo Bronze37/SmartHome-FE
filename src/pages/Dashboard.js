@@ -7,16 +7,16 @@ import Data from '../components/Data';
 
 const Dashboard = () => {
     return (
-        <div className="grid grid-cols-12 gap-6 py-4 bg-gray-100 min-h-screen">
+        <div className="grid grid-cols-12 gap-6 py-4 min-h-screen">
             {/* Main Content */}
             <div className="col-span-8 space-y-6">
                 {/* Overview and Data */}
                 <div className="grid grid-cols-3 gap-6">
                     <div className="col-span-2 bg-transparent">
-                        <Overview />
+                        <Data />
                     </div>
                     <div className="col-span-1 bg-transparent">
-                        <Data />
+                        <Overview />
                     </div>
                 </div>
 
@@ -33,11 +33,6 @@ const Dashboard = () => {
 
             {/* Sidebar */}
             <div className="col-span-4 space-y-6">
-                {/* Clock */}
-                <div className="bg-white shadow-md rounded-lg p-6 text-center">
-                    <h2 className="text-xl font-semibold text-gray-700">Clock</h2>
-                    <div className="mt-4 text-2xl font-bold text-gray-900">Dong ho</div>
-                </div>
 
                 {/* Cards */}
                 <div className="bg-white shadow-md rounded-lg p-6">

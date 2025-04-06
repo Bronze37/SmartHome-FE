@@ -18,8 +18,9 @@ const Login = ({ setIsAuthenticated }) => {
           password,
         }
       );
-      const { accessToken } = response.data.data;
-      localStorage.setItem("token", accessToken);
+      const { accessToken, user } = response.data.data; // Lấy cả accessToken và user từ response
+      localStorage.setItem("token", accessToken); // Lưu accessToken vào localStorage
+      localStorage.setItem("name", user.name); // Lưu username vào localStorage
       setError("");
       setIsAuthenticated(true);
       navigate("/");

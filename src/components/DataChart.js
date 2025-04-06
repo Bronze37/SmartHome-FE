@@ -8,8 +8,6 @@ function DataChart() {
     const [temp, setTemp] = useLimitedArray(10);
     const [humi, setHumi] = useLimitedArray(10);
     const [light, setLight] = useLimitedArray(10);
-    const [label, setLabel] = useLimitedArray(10);
-    const [db, setDb] = useLimitedArray(10);
 
     useEffect(() => {
         const socket = io('http://localhost:8688');
@@ -17,9 +15,6 @@ function DataChart() {
         socket.on('temp', (data_received) => {
             const nhietdo = data_received;
             setTemp(nhietdo);
-
-            const currentTime = new Date().toLocaleTimeString();
-            setLabel(currentTime);
         });
 
         socket.on('humi', (data_received) => {
@@ -31,10 +26,7 @@ function DataChart() {
             const anhsang = data_received;
             setLight(anhsang);
         });
-        socket.on('db', (data_received) => {
-            const dobui = data_received;
-            setDb(dobui);
-        });
+
         // Clean up the socket when the component unmounts
         return () => {
             socket.disconnect();
@@ -42,7 +34,7 @@ function DataChart() {
     }, []);
 
     const chartData = {
-        labels: label,
+        labels: Array(temp.length).fill(''), // Không hiển thị nhãn
         datasets: [
             {
                 label: 'Nhiệt độ',
@@ -73,12 +65,6 @@ function DataChart() {
 
     const chartOptions = {
         scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: 'Hệ thống IoT',
-                },
-            },
             'y-left': {
                 type: 'linear',
                 position: 'left',
@@ -93,7 +79,7 @@ function DataChart() {
                 type: 'linear',
                 position: 'right',
                 min: 0,
-                max: 500,
+                max: 600,
                 title: {
                     display: true,
                     text: 'Ánh sáng',

@@ -52,7 +52,7 @@ function App() {
           <div className="w-[20%] relative">
             <Sidebar />
           </div>
-          <div className="w-[80%] px-4 bg-gray-100">
+          <div className="w-[80%] px-4" style={{ backgroundColor: "#16142E" }}>
             <Routes>
               <Route
                 path="/"
