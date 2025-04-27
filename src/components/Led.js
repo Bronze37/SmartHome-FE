@@ -211,32 +211,71 @@ const Led = () => {
                 <div className="flex mb-3 flex-wrap">
                     <div
                         className="w-[60px] h-[60px] rounded-xl mr-3 mb-3 flex justify-center items-center bg-white shadow-md"
+                        onClick={
+                            isCheckedFan
+                                ? handleTurnOffFan
+                                : handleTurnOnFan
+                        }
                     >
-                        <img
-                            src={Fan_on}
-                            className="object-contain h-[75px]"
-                            alt="Fan is on"
-                        />
+                        {isCheckedFan ? (
+                            <img
+                                src={Fan_on}
+                                className="object-contain h-[75px]"
+                                alt="Fan is on"
+                            />
+                        ) : (
+                            <img
+                                src={Fan_off}
+                                className="object-contain h-[75px]"
+                                alt="Fan is off"
+                            />
+                        )}
                     </div>
 
                     <div
                         className="w-[60px] h-[60px] rounded-xl mr-3 flex justify-center items-center bg-white shadow-md"
+                        onClick={
+                            isCheckedAirCon
+                                ? handleTurnOffAirCon
+                                 : handleTurnOnAirCon
+                        }
                     >
-                        <img
-                            src={Air_off}
-                            className="object-contain h-[75px]"
-                            alt="AirConditioner is off"
-                        />
+                        {isCheckedAirCon ? (
+                            <img
+                                src={Air_on}
+                                className="object-contain h-[75px]"
+                                alt="AirConditioner is on"
+                            />
+                        ) : (
+                            <img
+                                src={Air_off}
+                                className="object-contain h-[75px]"
+                                alt="AirConditioner is off"
+                            />
+                        )}
                     </div>
 
                     <div
                         className="w-[60px] h-[60px] rounded-xl flex justify-center items-center bg-white shadow-md"
+                        onClick={
+                            isCheckedLight
+                                ? handleTurnOffLight
+                                : handleTurnOnLight
+                        }
                     >
-                        <img
-                            src="https://webvn.com/wp-content/uploads/2015/08/pic_bulbon.gif"
-                            className="object-contain h-[40px]"
-                            alt="AirConditioner is on"
-                        />
+                        {isCheckedLight ? (
+                            <img
+                                src="https://webvn.com/wp-content/uploads/2015/08/pic_bulbon.gif"
+                                className="object-contain h-[40px]"
+                                alt="AirConditioner is on"
+                            />
+                        ) : (
+                            <img
+                                src="https://www.w3schools.com/js/pic_bulboff.gif"
+                                className="object-contain h-[40px]"
+                                alt="AirConditioner is off"
+                            />
+                        )}
                     </div>
 
                     <div
