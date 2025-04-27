@@ -41,17 +41,8 @@ const ActionHistory = () => {
     }, [pageNumber, pageSize, query, softField]);
 
     return (
-        <div>
-            <strong className="h-[90px] border-b mr-[100px] flex justify-start items-center">
-                <h1>ACTION HISTORY</h1>
-                <Clock />
-            </strong>
-
-            <hr className="mr-[100px]" />
-
-            <br></br>
-
-            <div className="row mb-3 mr-[100px]">
+        <div className='p-4'>
+            <div className="row mb-3">
                 <div className="col-md-4">
                     <label htmlFor="searchQuery">Search</label>
                     <input
@@ -67,7 +58,7 @@ const ActionHistory = () => {
                 </div>
             </div>
 
-            <div className="flex justify-end mr-[100px]">
+            <div className="flex justify-end">
                 <table className="table table-striped table-bordered">
                     <thead>
                         <tr>

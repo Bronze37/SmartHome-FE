@@ -2,26 +2,22 @@ import React, { useState, useEffect } from 'react';
 import Cards from '../components/Cards';
 import Led from '../components/Led';
 import DataChart from '../components/DataChart';
+import Clock from '../components/Clock';
 
 const Dashboard = () => {
     return (
         <div>
-            <hr className="mr-[100px]" />
-
-            <div className="mr-[100px] mt-10">
-                <Cards />
-            </div>
-
-            <div className="mt-[40px] mr-[120px] flex justify-around items-center">
-                <div className="w-[70%]">
+            <div className="flex justify-around">
+                <div className="w-[75%] h-screen overflow-y-auto p-3">
+                    <Cards />
                     <DataChart />
                 </div>
-                <div className="w-[30%]">
+                <div className="w-[25%] h-screen overflow-y-auto" style={{ backgroundColor: "#F6F5FA" }}>
                     <Led />
                 </div>
             </div>
 
-            
+
         </div>
     );
 };

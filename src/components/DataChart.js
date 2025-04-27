@@ -52,14 +52,14 @@ function DataChart() {
                 yAxisID: 'y-left',
                 lineTension: 0.3,
             },
-            {
-                label: 'Độ bụi',
-                data: db,
-                borderColor: 'gray',
-                backgroundColor: 'rgba(170, 170, 170, 0.2)',
-                yAxisID: 'y-left',
-                lineTension: 0.3,
-            },
+            // {
+            //     label: 'Độ bụi',
+            //     data: db,
+            //     borderColor: 'gray',
+            //     backgroundColor: 'rgba(170, 170, 170, 0.2)',
+            //     yAxisID: 'y-left',
+            //     lineTension: 0.3,
+            // },
             {
                 label: 'Độ ẩm',
                 data: humi,
@@ -83,7 +83,7 @@ function DataChart() {
         scales: {
             x: {
                 title: {
-                    display: true,
+                    display: false,
                     text: 'Hệ thống IoT',
                 },
             },
@@ -93,7 +93,7 @@ function DataChart() {
                 min: 0,
                 max: 100,
                 title: {
-                    display: true,
+                    display: false,
                     text: 'Nhiệt độ và Độ ẩm',
                 },
             },
@@ -103,18 +103,18 @@ function DataChart() {
                 min: 0,
                 max: 500,
                 title: {
-                    display: true,
+                    display: false,
                     text: 'Ánh sáng',
                 },
                 grid: {
-                    drawOnChartArea: false, // Chỉ vẽ lưới cho trục y bên trái
+                    drawOnChartArea: false,
                 },
             },
         },
     };
 
     return (
-        <div className="border rounded-lg mr-11 ml-[20px]">
+        <div className="border-2 border-dashed border-gray-300 rounded-lg flex justify-center items-center p-2">
             <Line data={chartData} options={chartOptions} />
         </div>
     );

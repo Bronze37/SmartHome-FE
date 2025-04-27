@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 const Sidebar = () => {
     return (
         <div>
-            <div className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
+            <div className="z-10 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r transition duration-300"
+            style={{backgroundColor: "white"}}>
                 <div>
                     {/* <div>
                         <NavLink to="/" title="home">
@@ -21,12 +22,12 @@ const Sidebar = () => {
                                 className={({ isActive }) =>
                                     isActive
                                         ? 'relative px-4 py-3 flex items-center space-x-4 rounded-lg text-white bg-gradient-to-r from-sky-600 to-cyan-400'
-                                        : 'px-4 py-3 flex items-center space-x-4 rounded-md text-gray-700 group'
+                                        : 'px-4 py-3 flex items-center space-x-4 rounded-md text-black group'
                                 }
                             >
                                 <svg
                                     className={({ isActive }) =>
-                                        isActive ? 'h-6 w-6 text-white' : 'h-6 w-6 text-gray-700'
+                                        isActive ? 'h-6 w-6 text-white' : 'h-6 w-6 text-black'
                                     }
                                     width="24"
                                     height="24"
@@ -51,12 +52,12 @@ const Sidebar = () => {
                                 className={({ isActive }) =>
                                     isActive
                                         ? 'relative px-4 py-3 flex items-center space-x-4 rounded-lg text-white bg-gradient-to-r from-sky-600 to-cyan-400'
-                                        : 'px-4 py-3 flex items-center space-x-4 rounded-md text-gray-700 group'
+                                        : 'px-4 py-3 flex items-center space-x-4 rounded-md text-black group'
                                 }
                             >
                                 <svg
                                     className={({ isActive }) =>
-                                        isActive ? 'h-6 w-6 text-white' : 'h-6 w-6 text-gray-700'
+                                        isActive ? 'h-6 w-6 text-white' : 'h-6 w-6 text-black'
                                     }
                                     width="24"
                                     height="24"
@@ -71,7 +72,7 @@ const Sidebar = () => {
                                     <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
                                     <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
                                 </svg>
-                                <span className="group-hover:text-gray-700">Data Sensor</span>
+                                <span className="-mr-1 font-medium">Data Sensor</span>
                             </NavLink>
                         </li>
                         <li>
@@ -80,12 +81,12 @@ const Sidebar = () => {
                                 className={({ isActive }) =>
                                     isActive
                                         ? 'relative px-4 py-3 flex items-center space-x-4 rounded-lg text-white bg-gradient-to-r from-sky-600 to-cyan-400'
-                                        : 'px-4 py-3 flex items-center space-x-4 rounded-md text-gray-700 group'
+                                        : 'px-4 py-3 flex items-center space-x-4 rounded-md text-black group'
                                 }
                             >
                                 <svg
                                     className={({ isActive }) =>
-                                        isActive ? 'h-6 w-6 text-white' : 'h-6 w-6 text-gray-700'
+                                        isActive ? 'h-6 w-6 text-white' : 'h-6 w-6 text-black'
                                     }
                                     width="24"
                                     height="24"
@@ -100,7 +101,7 @@ const Sidebar = () => {
                                     <line x1="10" y1="7" x2="20" y2="7" /> <polyline points="8 13 4 17 8 21" />{' '}
                                     <line x1="4" y1="17" x2="13" y2="17" />
                                 </svg>
-                                <span className="group-hover:text-gray-700">Action History</span>
+                                <span className="-mr-1 font-medium">Action History</span>
                             </NavLink>
                         </li>
                         <li>
@@ -109,12 +110,12 @@ const Sidebar = () => {
                                 className={({ isActive }) =>
                                     isActive
                                         ? 'relative px-4 py-3 flex items-center space-x-4 rounded-lg text-white bg-gradient-to-r from-sky-600 to-cyan-400'
-                                        : 'px-4 py-3 flex items-center space-x-4 rounded-md text-gray-700 group'
+                                        : 'px-4 py-3 flex items-center space-x-4 rounded-md text-blackgroup'
                                 }
                             >
                                 <svg
                                     className={({ isActive }) =>
-                                        isActive ? 'h-6 w-6 text-white' : 'h-6 w-6 text-gray-700'
+                                        isActive ? 'h-6 w-6 text-white' : 'h-6 w-6 text-black'
                                     }
                                     width="24"
                                     height="24"
@@ -128,7 +129,7 @@ const Sidebar = () => {
                                     <path stroke="none" d="M0 0h24v24H0z" /> <circle cx="12" cy="7" r="4" />
                                     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                                 </svg>
-                                <span className="group-hover:text-gray-700">Profile</span>
+                                <span className="-mr-1 font-medium">Profile</span>
                             </NavLink>
                         </li>
                     </ul>

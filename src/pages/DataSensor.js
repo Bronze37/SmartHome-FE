@@ -49,17 +49,8 @@ const DataSensor = () => {
     console.log(dataSensor);
 
     return (
-        <div>
-            <strong className="h-[90px] border-b mr-[100px] flex justify-start items-center">
-                <div>DATA SENSORS</div>
-                <Clock />
-            </strong>
-
-            <hr className="mr-[100px]" />
-
-            <br></br>
-
-            <div className="row mb-3 mr-[100px]">
+        <div className="p-4">
+            <div className="row mb-3">
                 <div className="col-md-4">
                     <label htmlFor="searchQuery">Search</label>
                     <input
@@ -93,7 +84,7 @@ const DataSensor = () => {
                 </div>
             </div>
 
-            <div className="flex justify-end mr-[100px]">
+            <div className="flex justify-end">
                 <table className="table table-striped table-bordered">
                     <thead>
                         <tr>

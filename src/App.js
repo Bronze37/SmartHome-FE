@@ -11,7 +11,7 @@ import useLimitedArray from "./config/useLimitedArray";
 import {jwtDecode} from "jwt-decode";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -47,13 +47,13 @@ function App() {
   }
 
   return (
-    <div className="App flex justify-around">
+    <div className="App flex">
       {isAuthenticated ? (
         <>
-          <div className="w-[20%]">
+          <div className="w-[20%] h-screen sticky top-0">
             <Sidebar />
           </div>
-          <div className="w-[80%] mb-[100px]">
+          <div className="w-[80%] overflow-y-auto">
             <Routes>
               <Route
                 path="/"
