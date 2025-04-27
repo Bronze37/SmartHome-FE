@@ -11,7 +11,7 @@ import useLimitedArray from "./config/useLimitedArray";
 import {jwtDecode} from "jwt-decode";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

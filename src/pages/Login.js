@@ -19,7 +19,9 @@ const Login = ({ setIsAuthenticated }) => {
         }
       );
       const { accessToken } = response.data.data;
+      const { name } = response.data.data.user;
       localStorage.setItem("token", accessToken);
+      localStorage.setItem("name", name);
       setError("");
       setIsAuthenticated(true);
       navigate("/");

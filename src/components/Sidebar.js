@@ -1,11 +1,20 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        // Xóa token hoặc thông tin đăng nhập khỏi localStorage/sessionStorage
+        localStorage.removeItem('token');
+        // Chuyển hướng người dùng về trang đăng nhập
+        window.location.href = '/login';
+    };
+
     return (
         <div>
             <div className="z-10 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r transition duration-300"
-            style={{backgroundColor: "white"}}>
+                style={{ backgroundColor: "white" }}>
                 <div>
                     {/* <div>
                         <NavLink to="/" title="home">
@@ -133,6 +142,29 @@ const Sidebar = () => {
                             </NavLink>
                         </li>
                     </ul>
+                </div>
+
+                <div>
+                    <button
+                        onClick={handleLogout}
+                        className="w-full px-4 py-3 flex items-center space-x-4 rounded-lg text-white bg-gradient-to-r from-red-400 to-red-500 hover:from-red-500 hover:to-red-700 shadow-md hover:shadow-lg transition duration-300"
+                    >
+                        <svg
+                            className="h-6 w-6 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1"
+                            />
+                        </svg>
+                        <span className="font-medium text-lg">Logout</span>
+                    </button>
                 </div>
             </div>
         </div>
