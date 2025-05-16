@@ -7,7 +7,8 @@ const ActionHistory = () => {
     const [pageSize, setPageSize] = useState(10);
     const [relay, setRelay] = useState([]);
     const [query, setQuery] = useState("");
-    const [softField, setSoftField] = useState("id");
+    const [sortField, setSortField] = useState("id");
+    const [sortDirection, setSortDirection] = useState("DESC");
     const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
@@ -21,7 +22,8 @@ const ActionHistory = () => {
                         },
                         params: {
                             query,
-                            softField,
+                            sortField,
+                            sortDirection,
                             pageNumber,
                             pageSize,
                         },
@@ -38,7 +40,7 @@ const ActionHistory = () => {
         };
 
         fetchData();
-    }, [pageNumber, pageSize, query, softField]);
+    }, [pageNumber, pageSize, query, sortField, sortDirection]);
 
     return (
         <div className='p-4'>
@@ -59,23 +61,69 @@ const ActionHistory = () => {
             </div>
 
             <div className="flex justify-end">
-                <table className="table table-striped table-bordered">
+                <table
+                    className="table table-bordered"
+                    style={{ borderCollapse: "collapse", tableLayout: "fixed", width: "100%", userSelect: "none" }}
+                >
                     <thead>
                         <tr>
-                            <th className="px-4 py-2">ID</th>
-                            <th className="px-4 py-2">Device</th>
-                            <th className="px-4 py-2">Action</th>
-                            <th className="px-4 py-2">Created At</th>
+                            <th
+                                className="px-4 py-2"
+                                style={{ border: "none", width: "8%", cursor: "pointer" }}
+                                onClick={() => {
+                                    setSortField("id");
+                                    setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC");
+                                }}
+                            >
+                                ID
+                            </th>
+                            <th
+                                className="px-4 py-2"
+                                style={{ border: "none", width: "22%", cursor: "pointer" }}
+                                onClick={() => {
+                                    setSortField("device");
+                                    setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC");
+                                }}
+                            >
+                                Device
+                            </th>
+                            <th
+                                className="px-4 py-2"
+                                style={{ border: "none", width: "20%", cursor: "pointer" }}
+                                onClick={() => {
+                                    setSortField("action");
+                                    setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC");
+                                }}
+                            >
+                                Action
+                            </th>
+                            <th
+                                className="px-4 py-2"
+                                style={{ border: "none", width: "30%", cursor: "pointer" }}
+                                onClick={() => {
+                                    setSortField("createdAt");
+                                    setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC");
+                                }}
+                            >
+                                Created At
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         {Array.isArray(relay.data) &&
                             relay.data.map((action) => (
                                 <tr key={action.id}>
-                                    <td className="border px-4 py-2">{action.id}</td>
-                                    <td className="border px-4 py-2">{action.device}</td>
-                                    <td className="border px-4 py-2">{action.action}</td>
-                                    <td className="border px-4 py-2">
+                                    <td className="px-4 py-2" style={{ border: "none" }}>{action.id}</td>
+                                    <td className="px-4 py-2" style={{ border: "none" }}>{action.device}</td>
+                                    <td className="px-4 py-2" style={{ border: "none" }}>
+                                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${action.action === 'ON' || action.action === 'Turn On'
+                                            ? 'bg-green-100 text-green-800'
+                                            : 'bg-red-100 text-red-800'
+                                            }`}>
+                                            ● {action.action}
+                                        </span>
+                                    </td>
+                                    <td className="px-4 py-2" style={{ border: "none" }}>
                                         {new Date(action.createdAt).toLocaleString()}
                                     </td>
                                 </tr>
@@ -83,7 +131,7 @@ const ActionHistory = () => {
                     </tbody>
                 </table>
             </div>
-            
+
 
             <div className="d-flex justify-content-between align-items-center mr-[100px]">
                 <div className="col-md-2">

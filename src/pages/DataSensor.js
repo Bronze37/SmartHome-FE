@@ -9,8 +9,8 @@ const DataSensor = () => {
     const [dataSensor, setDataSensor] = useState([]);
     const [type, setType] = useState("all");
     const [query, setQuery] = useState("");
-    const [softField, setSoftField] = useState("light");
-    const [softDirection, setSoftDirection] = useState("ASC");
+    const [sortField, setSortField] = useState("id");
+    const [sortDirection, setSortDirection] = useState("DESC");
     const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
@@ -25,8 +25,8 @@ const DataSensor = () => {
                         params: {
                             type,
                             query,
-                            softField,
-                            softDirection,
+                            sortField,
+                            sortDirection,
                             pageNumber,
                             pageSize,
                         },
@@ -44,7 +44,7 @@ const DataSensor = () => {
 
         fetchData();
 
-    }, [pageNumber, pageSize, query, softField, softDirection, type]);
+    }, [pageNumber, pageSize, query, sortField, sortDirection, type]);
 
     console.log(dataSensor);
 
@@ -85,25 +85,43 @@ const DataSensor = () => {
             </div>
 
             <div className="flex justify-end">
-                <table className="table table-striped table-bordered">
+                <table
+                    className="table table-bordered"
+                    style={{ borderCollapse: "collapse", tableLayout: "fixed", width: "100%" }}
+                >
                     <thead>
                         <tr>
-                            <th className="px-4 py-2">ID</th>
-                            <th className="px-4 py-2">Temperature</th>
-                            <th className="px-4 py-2">Humidity</th>
-                            <th className="px-4 py-2">Light</th>
-                            <th className="px-4 py-2">Created At</th>
+                            <th className="px-4 py-2" style={{ border: "none", width: "8%", cursor: "pointer" }} onClick={() => {
+                                setSortField("id");
+                                setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC");
+                            }}>ID</th>
+                            <th className="px-4 py-2" style={{ border: "none", width: "18%", cursor: "pointer" }} onClick={() => {
+                                setSortField("temperature");
+                                setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC");
+                            }}>Temperature</th>
+                            <th className="px-4 py-2" style={{ border: "none", width: "18%", cursor: "pointer" }} onClick={() => {
+                                setSortField("humidity");
+                                setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC");
+                            }}>Humidity</th>
+                            <th className="px-4 py-2" style={{ border: "none", width: "18%", cursor: "pointer" }} onClick={() => {
+                                setSortField("light");
+                                setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC");
+                            }}>Light</th>
+                            <th className="px-4 py-2" style={{ border: "none", width: "38%", cursor: "pointer" }} onClick={() => {
+                                setSortField("createdAt");
+                                setSortDirection(sortDirection === "ASC" ? "DESC" : "ASC");
+                            }}>Created At</th>
                         </tr>
                     </thead>
                     <tbody>
                         {Array.isArray(dataSensor.data) &&
                             dataSensor.data.map((sensor) => (
                                 <tr key={sensor.id}>
-                                    <td className="border px-4 py-2">{sensor.id}</td>
-                                    <td className="border px-4 py-2">{sensor.temperature}</td>
-                                    <td className="border px-4 py-2">{sensor.humidity}</td>
-                                    <td className="border px-4 py-2">{sensor.light}</td>
-                                    <td className="border px-4 py-2">
+                                    <td className="px-4 py-2" style={{ border: "none" }}>{sensor.id}</td>
+                                    <td className="px-4 py-2" style={{ border: "none" }}>{sensor.temperature}</td>
+                                    <td className="px-4 py-2" style={{ border: "none" }}>{sensor.humidity}</td>
+                                    <td className="px-4 py-2" style={{ border: "none" }}>{sensor.light}</td>
+                                    <td className="px-4 py-2" style={{ border: "none" }}>
                                         {new Date(sensor.createdAt).toLocaleString()}
                                     </td>
                                 </tr>

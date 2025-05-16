@@ -64,7 +64,8 @@ const Cards = () => {
                 <h2 className="text-2xl font-bold">
         {(() => {
             if (weatherIcons.sunny.some(item => weather.condition.trim().toLowerCase().includes(item.toLowerCase()))) {
-                return "It's a sunny day! ☀️";
+                if (weather.onDay === 1) return "It's a sunny day! ☀️";
+                return "Good evening! 🌇";
             } else if (weatherIcons.rainy.some(item => weather.condition.trim().toLowerCase().includes(item.toLowerCase()))) {
                 return "Don't forget your umbrella! 🌧️";
             } else if (weatherIcons.cloudy.some(item => weather.condition.trim().toLowerCase().includes(item.toLowerCase()))) {

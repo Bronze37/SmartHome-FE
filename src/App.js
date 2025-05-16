@@ -47,7 +47,7 @@ function App() {
   }
 
   return (
-    <div className="App flex">
+    <div className="App flex" style={{ userSelect: "none"}}>
       {isAuthenticated ? (
         <>
           <div className="w-[20%] h-screen sticky top-0">
