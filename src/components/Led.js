@@ -110,11 +110,14 @@ const Led = () => {
         }
     };
 
-    const sendWarningEmail = () => {
+    const sendWarningEmail = (type, value) => {
         axios
             .post(
                 "http://localhost:8000/api/mail/send-warning",
-                {},
+                {
+                    type: type,
+                    value: value,
+                },
                 {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -140,7 +143,33 @@ const Led = () => {
                 confirmButtonText: "OK",
                 confirmButtonColor: "#333333",
             });
-            sendWarningEmail();
+            sendWarningEmail("temperature", tempCard);
+            lastAlertTime.current = now;
+        }
+
+        // Hàm cảnh báo độ ẩm cao
+        if (humiCard > 80 && now - lastAlertTime.current > 5000) {
+            Swal.fire({
+                title: "Cảnh báo!",
+                text: "Độ ẩm cao!",
+                icon: "warning",
+                confirmButtonText: "OK",
+                confirmButtonColor: "#333333",
+            });
+            sendWarningEmail("humidity", humiCard);
+            lastAlertTime.current = now;
+        }
+
+        // Hàm cảnh báo độ sáng cao
+        if (lightCard > 1000 && now - lastAlertTime.current > 5000) {
+            Swal.fire({
+                title: "Cảnh báo!",
+                text: "Độ sáng cao!",
+                icon: "warning",
+                confirmButtonText: "OK",
+                confirmButtonColor: "#333333",
+            });
+            sendWarningEmail("light", lightCard);
             lastAlertTime.current = now;
         }
     }, [tempCard]);
@@ -279,7 +308,7 @@ const Led = () => {
                     </div>
 
                     <div
-                        className="w-[60px] h-[60px] rounded-xl flex justify-center items-center bg-white border-2 border-dashed"
+                        className="w-[60px] h-[60px] rounded-xl flex justify-center items-center bg-white border-2 border-dashed xl:ml-3"
                     >
                         <i
                             className="fas fa-plus text-gray-300"
