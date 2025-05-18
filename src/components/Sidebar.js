@@ -113,7 +113,7 @@ const Sidebar = () => {
                                 <span className="-mr-1 font-medium">Action History</span>
                             </NavLink>
                         </li>
-                        <li>
+                        {/* <li>
                             <NavLink
                                 to="/profile"
                                 className={({ isActive }) =>
@@ -140,7 +140,7 @@ const Sidebar = () => {
                                 </svg>
                                 <span className="-mr-1 font-medium">Profile</span>
                             </NavLink>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
 
